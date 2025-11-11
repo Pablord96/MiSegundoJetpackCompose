@@ -5,6 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.content.contentReceiver
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -124,6 +126,20 @@ fun MiFuncion3(){
     }
 }
 
+@Preview(showBackground = true, widthDp = 200, heightDp = 100)
+@Composable
+fun MiBoton(){
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ){
+        Text(text="Pulsa Aquí",
+            modifier = Modifier.background(Color.Green)
+                .border(width = 2.dp, color = Color.Black)
+                .padding(horizontal = 20.dp, vertical = 10.dp))
+    }
+}
+
 //@Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
@@ -148,7 +164,7 @@ fun MiFuncion2Preview() {
     }
 }
 
-@Preview(showBackground = true, name = "Pablo Preview 3")
+//@Preview(showBackground = true, name = "Pablo Preview 3")
 @Composable
 fun MiFuncion3Preview() {
     MiSegundoJetpackComposeTheme {
