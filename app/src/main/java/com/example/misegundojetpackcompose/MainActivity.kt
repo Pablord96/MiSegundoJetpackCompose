@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.content.contentReceiver
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -21,8 +22,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.misegundojetpackcompose.ui.theme.MiSegundoJetpackComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -31,12 +38,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MiSegundoJetpackComposeTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Pablo",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                MiBoton()
             }
         }
     }
@@ -126,17 +128,39 @@ fun MiFuncion3(){
     }
 }
 
-@Preview(showBackground = true, widthDp = 200, heightDp = 100)
+//@Preview(showBackground = true, widthDp = 200, heightDp = 100)
 @Composable
 fun MiBoton(){
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize(),
         contentAlignment = Alignment.Center
     ){
         Text(text="Pulsa Aquí",
             modifier = Modifier.background(Color.Green)
+                .clickable{}
                 .border(width = 2.dp, color = Color.Black)
-                .padding(horizontal = 20.dp, vertical = 10.dp))
+                .padding(horizontal = 20.dp, vertical = 10.dp)
+        )
+    }
+}
+
+@Preview(showBackground = true, widthDp = 200, heightDp = 100)
+@Composable
+fun Textos(){
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ){
+        Text(text= stringResource(id = R.string.lore),
+            fontSize = 8.sp,
+            color = Color.Red,
+            fontFamily = FontFamily.Monospace,
+            fontWeight = FontWeight.Bold,
+            fontStyle = FontStyle.Italic,
+            letterSpacing = 2.sp,
+            textDecoration = TextDecoration.Underline
+        )
     }
 }
 
